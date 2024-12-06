@@ -1,13 +1,14 @@
 import { User } from "../entities/User";
-import { UserRepository } from "../repositories/UserRepository";
+import { UserRepository } from "../Interfaces/IUserRepository";
 
-export class UserService{
+export class UsecaseUser {
+    
     constructor(private UserRepository:UserRepository){}
 
 
     async createUser(data: Omit<User, "id">){ 
 
-        const newUser = new User(0, data.name, data.email, data.password)
+        const newUser = new User(0, data.name, data.email, data.password);
 
         return await this.UserRepository.create(newUser);
 

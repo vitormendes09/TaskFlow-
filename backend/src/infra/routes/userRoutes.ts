@@ -1,7 +1,7 @@
 import {Router} from "express";
 import {UserController} from "../../controllers/UserController";
-import { UserService } from "../../services/UserService";
-import { PrismaUserRepository } from "../../repositories/prisma/PrismaUserRepository";
+import { UserService } from "../../use-case/UsecaseUser";
+import { PrismaUserRepository } from "../../repositories/UserRepository";
 
 const router = Router();
 const userRepository = new PrismaUserRepository();
