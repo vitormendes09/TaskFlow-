@@ -1,8 +1,8 @@
 import {Request, Response} from "express";
-import { UsecaseUser } from "../use-case/UsecaseUser";
+import { CreateUserUseCase } from "../use-case/user/CreateUserUseCase";
 
 export class UserController{
-    constructor(private userService: UsecaseUser){}
+    constructor(private userService: CreateUserUseCase){}
 
     async create(req: Request, res: Response): Promise<void>{
         const{name,email,password} = req.body;

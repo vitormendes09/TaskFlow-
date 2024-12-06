@@ -1,13 +1,13 @@
 import { PrismaClient } from "@prisma/client";
-import { UserRepository } from "../Interfaces/IUserRepository";
+import { IUserRepository } from "../Interfaces/IUserRepository";
 import { User } from "../entities/User";
 
 
 const prisma = new PrismaClient();
 
-export class PrismaUserRepository implements  UserRepository {
+export class UserRepository implements  IUserRepository {
 
-    async create (user: User): Promise <User> {
+    async createUser (user: User): Promise <User> {
 
         const createUser = await prisma.user.create({
             data: {
@@ -34,10 +34,10 @@ export class PrismaUserRepository implements  UserRepository {
 
    async update(id: number, user: Partial<User>): Promise<User> {
        
-    return await prisma.user.update({
-        where: {id},
-        data: user,
-    });
+        return await prisma.user.update({
+            where: {id},
+            data: user,
+   });
 
 
    }

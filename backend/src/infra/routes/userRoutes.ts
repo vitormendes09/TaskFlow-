@@ -1,11 +1,11 @@
 import {Router} from "express";
 import {UserController} from "../../controllers/UserController";
-import { UsecaseUser } from "../../use-case/UsecaseUser";
-import { PrismaUserRepository } from "../../repositories/UserRepository";
+import { CreateUserUseCase } from "../../use-case/user/CreateUserUseCase";
+import { UserRepository } from "../../repositories/UserRepository";
 
 const router = Router();
-const userRepository = new PrismaUserRepository();
-const usecaseUser = new UsecaseUser(userRepository);
+const userRepository = new UserRepository();
+const usecaseUser = new CreateUserUseCase(userRepository);
 const userController = new UserController(usecaseUser);
 
 router.post("/users", userController.create.bind(userController));
