@@ -15,9 +15,8 @@ export function UserControllerFactory(): {router: Router; controller: UserContro
     const router = Router();
 
     router.post("/users", userController.create.bind(userController));
-    router.get("/users/:id", userController.getId.bind(userController));
-    router.get("users", userController.listUser.bind(userController));
+   
 
-    
+
     return{ router, controller: userController}
 }
