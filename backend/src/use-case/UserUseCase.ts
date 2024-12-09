@@ -20,6 +20,16 @@ export class UserUseCase {
 
     }
 
+    // Listando todos os usuários
+    async listUsers(): Promise<User[]> {
+        return await this.UserRepository.findAll();
+    }
+
+    // Buscando um usuário por ID
+    async getUserById(id: number): Promise<User | null> {
+        return await this.UserRepository.findById(id);
+    }
+
 
    
 }

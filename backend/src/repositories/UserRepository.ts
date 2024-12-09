@@ -33,14 +33,10 @@ export class UserRepository implements  IUserRepository {
 
 
    async update(id: number, user: Partial<User>): Promise<User> {
-       
         return await prisma.user.update({
             where: {id},
             data: user,
-   });
-
-
-   }
+   });}
 
 
    async delete(id: number): Promise<void> {
