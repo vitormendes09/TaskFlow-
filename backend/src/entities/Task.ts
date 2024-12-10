@@ -5,7 +5,7 @@ export class Task {
   public id?: number;
   public userId?: number| null; // Relacionamento com User
   public categoryId?: number | null; // Relacionamento opcional com Category
-  public status: TaskStatus;
+  public status: string; // TaskStatus;
 
     constructor(
       public title: string,

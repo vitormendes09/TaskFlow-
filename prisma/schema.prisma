@@ -25,6 +25,7 @@ model Task{
   description String
   dueDate DateTime
   status String
+  
   userId Int?
   categoryId  Int?
   user        User?     @relation(fields: [userId], references: [id])
