@@ -1,3 +1,5 @@
+import { string } from "zod";
+
 export class User {
 
   private id?: number;

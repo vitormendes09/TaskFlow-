@@ -1,6 +1,6 @@
 import { User } from "../entities/User";
 
-import { UserUseCase } from "../use-case/UserUseCase";
+
 
 export interface IUserRepository {
   createUser(user: User): Promise<User>;
