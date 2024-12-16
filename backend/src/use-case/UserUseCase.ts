@@ -16,7 +16,7 @@ export class UserUseCase {
     //Criando Usuário 
     async createUser(data: CreateUserDTO): Promise<User>{ 
 
-        const newUser = new User(  data.name, data.email, data.password);
+        const newUser = new User( data.name, data.email, data.password);
         return await this.UserRepository.createUser(newUser)
 
     }
