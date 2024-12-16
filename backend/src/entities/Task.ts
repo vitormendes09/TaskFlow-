@@ -7,12 +7,12 @@ export class Task {
   private categoryId?: number | null; // Relacionamento opcional com Category
   private status: string; // TaskStatus;
   private title: string;
-  private description: string | null;
+  private description: string;
   private dueDate: Date;
 
     constructor(
       title: string,
-      description: string | null,
+      description: string,
       dueDate: Date
     ) { 
 
@@ -29,7 +29,7 @@ export class Task {
     get getTitle() : string {
       return this.title;
     }
-    get getDescription() : string | null {
+    get getDescription() : string{
       return this.description;
     }
     get getdueDate() : Date {

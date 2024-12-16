@@ -18,14 +18,22 @@ export class TaskRepository implements ItaskRepository{
     
 
     async createTask(task: Task): Promise<Task> {
-         const createTask = await prisma.task.create({
+        const createTaskData = await prisma.task.create({
                 data: { 
-                    title: task.title,
-                    description: task.title,
-                    dueDate: task.dueDate,
-                    status: task.status
+                    title: task.getTitle,
+                    description: task.getDescription ,
+                    dueDate: task.getdueDate,
+                    status: task.getStatus
                 }
             });
+
+        
+        const createTask = new Task(
+            createTaskData.title,
+            createTaskData.description,
+            createTaskData.dueDate,
+            
+        );
             return createTask;
     }
 
