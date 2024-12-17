@@ -1,27 +1,23 @@
 export class Category {
-
-  private name: string;
   private id?: number;
+  private name: string;
   private userId?: number;
-  constructor(
-    name: string
-  ) {
 
-    this.name = name;
+  constructor(name: string, id?: number, userId?: number) {
+      this.id = id;
+      this.name = name;
+      this.userId = userId;
   }
 
-
-  
-  get getId() : number |undefined {
-    return this.id
+  getName() {
+      return this.name;
   }
 
-  get getName(): string{
-    return this.name;
+  getId() {
+      return this.id;
   }
 
-  get getUserId(): number | undefined{
-    return this.userId;
+  getUserId() {
+      return this.userId;
   }
-  
 }

@@ -25,11 +25,6 @@ describe("Registra usuario", () => {
     });
 
     test("Registrar o mesmo usuario duas vezes e receber um erro", () => {
-        // arrange
-
-        // act
-
-        // assert
         expect(2).toBe(2);
     });
 })

@@ -4,26 +4,32 @@ import { Category } from "../entities/Category"
 
 const prisma = new PrismaClient();
 
+interface CreateCategoryDTO {
+    name: string;
+    userId?: number;
+}
+
+
 export class CategoryRepository implements ICategoryRepository{
 
-    async createCategory(category: Category): Promise<Category> {
-        
-       const CategoryData = await prisma.category.create({
-            
+    async createCategory(category: CreateCategoryDTO): Promise<Category> {
+        const categoryData = await prisma.category.create({
             data: {
-                name: category.getName,
-                id: category.getId,
-                userId: category.getUserId
-                
+                name: category.name,
+                userId: category.userId,
             },
-       });
-
-       const createdCategory = new Category(
-        this.createCategory.name
-       );
-
-       return createdCategory;
+        });
+    
+        const createdCategory = new Category(
+            categoryData.name,
+            categoryData.id,
+            categoryData.userId
+        );
+    
+        return createdCategory;
     }
+    
+    
     findByID(id: number): Promise<Category | null> {
         throw new Error("Method not implemented.");
     }
